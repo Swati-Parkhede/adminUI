@@ -24,7 +24,7 @@ const UserTable = (props) => {
                     {props.users.map((user) => {
 
                         return (
-                            <tr key={user.id} >
+                            <tr className='table-row' key={user.id} >
                                 <td>
                                     <input type='checkbox' />
                                 </td>
