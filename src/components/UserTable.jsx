@@ -18,7 +18,7 @@ const UserTable = (props) => {
                         <th>Name</th>
                         <th>Email</th>
                         <th>Roll</th>
-                        <th>Action</th>
+                        <th className='center-text'>Action</th>
                     </tr>
 
                     {props.users.map((user) => {
@@ -32,7 +32,7 @@ const UserTable = (props) => {
                                 <td className="userdata" key={user.name}>{user.name}</td>
                                 <td className="userdata" key={user.email}>{user.email}</td>
                                 <td className="userdata" key={user.role}>{user.role}</td>
-                                <td>
+                                <td className='center-text'>
                                     <span><img className="actionIcons" src={editIcon} alt="edit" /></span>
                                     <span><img className="actionIcons" src={deleteIcon} alt="delete" /></span>
                                 </td>
@@ -42,6 +42,7 @@ const UserTable = (props) => {
                     )}
                 </tbody>
             </table>
+            </div>
         </>
     )
 }

@@ -1,7 +1,7 @@
 
 
 .usertable {
-    width: 100vw;
+    width: 90vw;
     border-bottom: 1px solid black;
     border-collapse: collapse;
 }
@@ -10,9 +10,12 @@
     text-align: left;
     display: table-row;
     border-bottom: 1px lightgray solid;
-
+}
+.center-text{
+    text-align: center;
 }
 .actionIcons{
      height: 15px;
      width: 15px;
+     padding-left: 15px;
 }
