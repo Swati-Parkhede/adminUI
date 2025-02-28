@@ -1,0 +1,14 @@
+
+
+.usertable {
+    border-bottom: 1px solid black;
+}
+
+.table-row {
+    display: table-row;
+
+}
+.actionIcons{
+     height: 15px;
+     width: 15px;
+}
