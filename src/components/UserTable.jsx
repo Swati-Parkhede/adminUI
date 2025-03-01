@@ -35,6 +35,11 @@ const UserTable = () => {
         }
         setSelectedRows(SelectedRows)
     }
+    const editUser = (e,i) => { 
+        const newUserName =prompt("enter new name for " + userData[i].name)
+        userData[i].name = newUserName
+        setUserData(userData.slice(0))
+    }
 
     return (
         <>
@@ -62,7 +67,7 @@ const UserTable = () => {
                                 <td className="userdata" key={user.email}>{user.email}</td>
                                 <td className="userdata" key={user.role}>{user.role}</td>
                                 <td className='center-text'>
-                                    <span><img className="actionIcons" src={editIcon} alt="edit" /></span>
+                                    <span><img className="actionIcons" src={editIcon} alt="edit" onClick={(e)=>editUser(e,i)} /></span>
                                     <span><img className="actionIcons" index={i} src={deleteIcon} alt="delete" onClick={((e) => { deleteuser(i) })} /></span>
                                 </td>
                             </tr>
