@@ -5,6 +5,7 @@ import editIcon from './icons/edit.png'
 import deleteIcon from './icons/delete.png'
 const UserTable = () => {
     const [userData, setUserData] = useState([])
+    const [SelectedRows, setSelectedRows] = useState([])
 
     useEffect(() => {
         fetch("https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json")
@@ -16,6 +17,23 @@ const UserTable = () => {
     const deleteuser = (index) => {
         const newUserData = userData.filter((_, i) => i != index)
         setUserData(newUserData)
+    }
+
+    const deleteRows = () => {
+        const newUserData = userData.filter((_, i) => !SelectedRows.includes(i))
+        setUserData(newUserData)
+
+    }
+
+    const updateSelectedRows = (e,i) => {
+        if(e.target.checked){
+        SelectedRows.push(i);
+        }
+        else{
+           const index= SelectedRows.indexOf(i)
+           delete SelectedRows[index]
+        }
+        setSelectedRows(SelectedRows)
     }
 
     return (
@@ -37,7 +55,7 @@ const UserTable = () => {
                         return (
                             <tr className='table-row' key={user.id} >
                                 <td>
-                                    <input type='checkbox' />
+                                    <input type='checkbox' onClick={(e) => { updateSelectedRows(e,i) }} />
                                 </td>
 
                                 <td className="userdata" key={user.name}>{user.name}</td>
@@ -53,6 +71,7 @@ const UserTable = () => {
                     )}
                 </tbody>
             </table>
+            <button className='delBtn' onClick={(e) => { deleteRows() }} >Delete Selected</button>
         </>
     )
 }
