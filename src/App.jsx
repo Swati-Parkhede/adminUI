@@ -1,6 +1,5 @@
 
 import './App.css'
-import FetchUser from './components/FetchUser'
 import UserTable from './components/UserTable'
 
 function App() {
