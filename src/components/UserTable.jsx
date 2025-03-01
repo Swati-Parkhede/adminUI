@@ -25,13 +25,13 @@ const UserTable = () => {
 
     }
 
-    const updateSelectedRows = (e,i) => {
-        if(e.target.checked){
-        SelectedRows.push(i);
+    const updateSelectedRows = (e, i) => {
+        if (e.target.checked) {
+            SelectedRows.push(i);
         }
-        else{
-           const index= SelectedRows.indexOf(i)
-           delete SelectedRows[index]
+        else {
+            const index = SelectedRows.indexOf(i)
+            delete SelectedRows[index]
         }
         setSelectedRows(SelectedRows)
     }
@@ -55,7 +55,7 @@ const UserTable = () => {
                         return (
                             <tr className='table-row' key={user.id} >
                                 <td>
-                                    <input type='checkbox' onClick={(e) => { updateSelectedRows(e,i) }} />
+                                    <input type='checkbox' onClick={(e) => { updateSelectedRows(e, i) }} />
                                 </td>
 
                                 <td className="userdata" key={user.name}>{user.name}</td>
