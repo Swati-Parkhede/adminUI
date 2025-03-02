@@ -101,8 +101,8 @@ const UserTable = () => {
                     <span className='pageButton' onClick={() => { setPageNumber(1) }}>{"<<"}</span>
                     <span className='pageButton' onClick={() => { setPageNumber(pageNumber > 1 ? pageNumber - 1 : pageNumber) }}>{"<"}</span>
                     {addButtons(userData.length == 0 ? 1 : Math.ceil(userData.length / 10))}
-                    <span className='pageButton' onClick={() => { setPageNumber(pageNumber<Math.ceil(userData.length/10) ? pageNumber + 1 : pageNumber) }}>{">"}</span>
-                    <span className='pageButton' onClick={() => { setPageNumber(Math.ceil(userData.length/10)) }}>{">>"}</span>
+                    <span className='pageButton' onClick={() => { setPageNumber(pageNumber < Math.ceil(userData.length / 10) ? pageNumber + 1 : pageNumber) }}>{">"}</span>
+                    <span className='pageButton' onClick={() => { setPageNumber(Math.ceil(userData.length / 10)) }}>{">>"}</span>
                 </span>
             </span>
         </>

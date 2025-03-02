@@ -1,5 +1,3 @@
-
-
 .usertable {
     width: 90vw;
     border-bottom: 1px solid black;
@@ -11,15 +9,18 @@
     display: table-row;
     border-bottom: 1px lightgray solid;
 }
-.center-text{
+
+.center-text {
     text-align: center;
 }
-.actionIcons{
-     height: 15px;
-     width: 15px;
-     padding-left: 15px;
+
+.actionIcons {
+    height: 15px;
+    width: 15px;
+    padding-left: 15px;
 }
-.delBtn{
+
+.delBtn {
     font-size: smaller;
     background-color: #ff5171;
     border-radius: 8px;
@@ -28,7 +29,8 @@
     margin: 12px;
     color: white;
 }
-.pageButton{
+
+.pageButton {
     border-radius: 80%;
     border: 1px #1890ff, solid;
     background-color: #1890ff;
@@ -38,12 +40,14 @@
     width: 25px;
     height: 25px;
 }
-.pageButtons{
+
+.pageButtons {
     display: flex;
     justify-content: center;
     margin-top: 10px;
 }
-.bulk{
+
+.bulk {
     display: flex;
     justify-content: stretch;
 }
