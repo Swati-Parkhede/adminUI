@@ -7,11 +7,12 @@ const UserTable = () => {
     const [userData, setUserData] = useState([])
     const [SelectedRows, setSelectedRows] = useState([])
     const [pageNumber, setPageNumber] = useState(1)
+    const [originalUserData, setOriginalUserData] = useState([])
 
     useEffect(() => {
         fetch("https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json")
             .then((response) => response.json())
-            .then((resp) => setUserData(resp))
+            .then((resp) => { setUserData(resp); setOriginalUserData(resp) })
     }, [])
 
     const pageChange = (pageNum) => {
@@ -59,9 +60,19 @@ const UserTable = () => {
         setUserData(userData.slice(0));
     }
 
+    const applySearch = (input) => {
+        const newUserData = input ? originalUserData.filter((user) =>
+            user.name.includes(input)
+        ) : originalUserData
+        setUserData(newUserData)
+    }
+
 
     return (
         <>
+            <div>
+                <input type='text' className='searchbar' onChange={(e) => { applySearch(e.target.value) }} placeholder='Search by name, email or role'></input>
+            </div>
             <table className="usertable">
                 <tbody>
                     <tr className="table-row">

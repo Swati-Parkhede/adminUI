@@ -30,6 +30,11 @@
     color: white;
 }
 
+.searchbar {
+    width: 100%;
+    margin: 10px 5px;
+}
+
 .pageButton {
     border-radius: 80%;
     border: 1px #1890ff, solid;
