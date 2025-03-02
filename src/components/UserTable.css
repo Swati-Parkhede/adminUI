@@ -27,3 +27,22 @@
     padding: 4px;
     margin: 12px;
 }
+.pageButton{
+    border-radius: 80%;
+    border: 1px blue, solid;
+    background-color: blue;
+    color: white;
+    margin-left: 15px;
+    text-align: center;
+    width: 25px;
+    height: 25px;
+}
+.pageButtons{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+.bulk{
+    display: flex;
+    justify-content: stretch;
+}

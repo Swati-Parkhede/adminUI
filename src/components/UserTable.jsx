@@ -6,12 +6,25 @@ import deleteIcon from './icons/delete.png'
 const UserTable = () => {
     const [userData, setUserData] = useState([])
     const [SelectedRows, setSelectedRows] = useState([])
+    const [pageNumber, setPageNumber] = useState(1)
 
     useEffect(() => {
         fetch("https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json")
             .then((response) => response.json())
             .then((resp) => setUserData(resp))
     }, [])
+
+    const pageChange = (pageNum)=>{
+        setPageNumber(pageNum)
+    }
+
+    const addButtons = (count) => {
+        let buttons = []
+        for (let i = 1; i <= count; i++) {
+            buttons.push(<span className='pageButton' onClick={()=>pageChange(i)}>{i}</span>)
+        }
+        return buttons
+    }
 
 
     const deleteuser = (index) => {
@@ -61,7 +74,7 @@ const UserTable = () => {
                         <th className='center-text'>Action</th>
                     </tr>
 
-                    {userData.map((user, i) => {
+                    {userData.slice((pageNumber-1)*10, (pageNumber-1)*10+10 ).map((user, i) => {
 
                         return (
                             <tr className='table-row' key={user.id} >
@@ -82,7 +95,12 @@ const UserTable = () => {
                     )}
                 </tbody>
             </table>
-            <button className='delBtn' onClick={(e) => { deleteRows() }} >Delete Selected</button>
+            <span className='bulk'>
+                <button className='delBtn' onClick={(e) => { deleteRows() }} >Delete Selected</button>
+                <span className='pageButtons'>
+                    {addButtons(userData.length == 0 ? 1 : Math.ceil(userData.length / 10))}
+                </span>
+            </span>
         </>
     )
 }
