@@ -14,14 +14,14 @@ const UserTable = () => {
             .then((resp) => setUserData(resp))
     }, [])
 
-    const pageChange = (pageNum)=>{
+    const pageChange = (pageNum) => {
         setPageNumber(pageNum)
     }
 
     const addButtons = (count) => {
         let buttons = []
         for (let i = 1; i <= count; i++) {
-            buttons.push(<span className='pageButton' onClick={()=>pageChange(i)}>{i}</span>)
+            buttons.push(<span className='pageButton' onClick={() => pageChange(i)}>{i}</span>)
         }
         return buttons
     }
@@ -74,7 +74,7 @@ const UserTable = () => {
                         <th className='center-text'>Action</th>
                     </tr>
 
-                    {userData.slice((pageNumber-1)*10, (pageNumber-1)*10+10 ).map((user, i) => {
+                    {userData.slice((pageNumber - 1) * 10, (pageNumber - 1) * 10 + 10).map((user, i) => {
 
                         return (
                             <tr className='table-row' key={user.id} >
@@ -98,7 +98,11 @@ const UserTable = () => {
             <span className='bulk'>
                 <button className='delBtn' onClick={(e) => { deleteRows() }} >Delete Selected</button>
                 <span className='pageButtons'>
+                    <span className='pageButton' onClick={() => { setPageNumber(1) }}>{"<<"}</span>
+                    <span className='pageButton' onClick={() => { setPageNumber(pageNumber > 1 ? pageNumber - 1 : pageNumber) }}>{"<"}</span>
                     {addButtons(userData.length == 0 ? 1 : Math.ceil(userData.length / 10))}
+                    <span className='pageButton' onClick={() => { setPageNumber(pageNumber<Math.ceil(userData.length/10) ? pageNumber + 1 : pageNumber) }}>{">"}</span>
+                    <span className='pageButton' onClick={() => { setPageNumber(Math.ceil(userData.length/10)) }}>{">>"}</span>
                 </span>
             </span>
         </>

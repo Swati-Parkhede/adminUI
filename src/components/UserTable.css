@@ -21,16 +21,17 @@
 }
 .delBtn{
     font-size: smaller;
-    background-color: red;
+    background-color: #ff5171;
     border-radius: 8px;
     padding-top: 10px;
     padding: 4px;
     margin: 12px;
+    color: white;
 }
 .pageButton{
     border-radius: 80%;
-    border: 1px blue, solid;
-    background-color: blue;
+    border: 1px #1890ff, solid;
+    background-color: #1890ff;
     color: white;
     margin-left: 15px;
     text-align: center;
