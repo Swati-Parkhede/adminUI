@@ -62,7 +62,7 @@ const UserTable = () => {
 
     const applySearch = (input) => {
         const newUserData = input ? originalUserData.filter((user) =>
-            user.name.includes(input)
+            user.name.includes(input) || user.email.includes(input)||user.role.includes(input)
         ) : originalUserData
         setUserData(newUserData)
     }
