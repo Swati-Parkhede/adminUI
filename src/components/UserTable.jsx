@@ -42,10 +42,12 @@ const UserTable = () => {
     const updateSelectedRows = (e, i) => {
         if (e.target.checked) {
             SelectedRows.push(i);
+            e.target.parentNode.parentNode.className = 'selected-table-row'
         }
         else {
             const index = SelectedRows.indexOf(i)
             delete SelectedRows[index]
+            e.target.parentNode.parentNode.className = 'table-row'
         }
         setSelectedRows(SelectedRows)
     }
@@ -62,7 +64,7 @@ const UserTable = () => {
 
     const applySearch = (input) => {
         const newUserData = input ? originalUserData.filter((user) =>
-            user.name.includes(input) || user.email.includes(input)||user.role.includes(input)
+            user.name.includes(input) || user.email.includes(input) || user.role.includes(input)
         ) : originalUserData
         setUserData(newUserData)
     }

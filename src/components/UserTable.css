@@ -10,6 +10,13 @@
     border-bottom: 1px lightgray solid;
 }
 
+.selected-table-row{
+    text-align: left;
+    display: table-row;
+    border-bottom: 1px lightgray solid;
+    background-color: lightgrey;
+}
+
 .center-text {
     text-align: center;
 }
